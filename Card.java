@@ -29,7 +29,7 @@ public class Card implements Comparable {
    static String directory = "cards/";
 
 
-  /**
+/**
    * Creates a new playing card.
    * @param suit the suit value of this card.
    * @param rank the rank value of this card.
@@ -39,14 +39,13 @@ public class Card implements Comparable {
       cardImage = cardFace;
       suitValue = suit;
       rankValue = rank;
-	  }
+	}
 
 
-   public Card(char suit,char rank)
-   {
-	   suitValue = suit;
-	   rankValue = rank;
-	   cardImage = new ImageIcon(getImageFile());
+   public Card(char suit,char rank) {
+	suitValue = suit;
+	rankValue = rank;
+	cardImage = new ImageIcon(getImageFile());
    }
 
    public static int getSuitIndex(char suit)
@@ -103,7 +102,7 @@ public class Card implements Comparable {
 	}
 
 
-  /**
+/**
    * Returns the suit of the card.
    * @return a Suit constant representing the suit value of the card.
    */
@@ -112,7 +111,7 @@ public class Card implements Comparable {
    }
 
 
-  /**
+/**
    * Returns the rank of the card.
    * @return a Rank constant representing the rank value of the card.
    */
@@ -121,7 +120,7 @@ public class Card implements Comparable {
    }
 
 
-  /**
+/**
    * Returns the graphic image of the card.
    * @return an icon containing the graphic image of the card.
    */
@@ -130,7 +129,7 @@ public class Card implements Comparable {
    }
 
 
-  /**
+/**
    * Returns a description of this card.
    * @return the name of the card.
    */
@@ -139,7 +138,7 @@ public class Card implements Comparable {
    }
 
 
-  /**
+/**
    * Compares two cards for the purposes of sorting.
    * Cards are ordered by their
    * rank value.
@@ -149,8 +148,8 @@ public class Card implements Comparable {
    */
    public int compareTo( Object otherCardObject ) {
       Card otherCard = (Card) otherCardObject;
-	  int rankDiff = getRankIndex(suitValue) - getRankIndex(otherCard.suitValue) ;
-	  return rankDiff;
+	int rankDiff = getRankIndex(suitValue) - getRankIndex(otherCard.suitValue) ;
+	return rankDiff;
    }
 
 
