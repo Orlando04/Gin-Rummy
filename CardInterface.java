@@ -37,42 +37,42 @@ public interface CardInterface extends Comparable {
    */
 //	public static int getRankIndex(char rank);
 
-	  /**
+	/**
    * Returns a String iby the name of the directory named above
    * concatonated with the toString method of Card and ".gif"
    */
 	public String getImageFile();
 
 
-  /**
+   /**
    * Returns the suit of the card.
    * @return a char representing the suit value of the card.
    */
    public char getSuit();
 
 
-  /**
+   /**
    * Returns the rank of the card.
    * @return a Rank constant representing the rank value of the card.
    */
    public char getRank();
 
 
-  /**
+   /**
    * Returns the graphic image of the card.
    * @return an icon containing the graphic image of the card.
    */
    public ImageIcon getCardImage();
 
 
-  /**
+   /**
    * Returns a two character String with rank being represented by one of the following chars -  a,1,2,3,4,5,6,7,8,9,t,j,q,k -
    * and suit being represented by one of the following chars - c,d,h,s
    * @return the name of the card.
    */
    public String toString();
 
-  /**
+   /**
    * Compares two cards for the purposes of sorting.
    * Cards should be ordered by their rank index as defined in the char static array named rank.
    * @param otherCardObject the other card

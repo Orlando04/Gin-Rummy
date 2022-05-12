@@ -1,27 +1,27 @@
 import java.util.*;
-public class Set implements SetInterface
-{
-    /**
+public class Set implements SetInterface {
+   
+   /**
      * Creates a hand for a set.
      */
 	char rank;
 	int rankIndex;
 	protected List hand = new ArrayList();
-    public Set(char rank) {
-        super();
+   public Set(char rank) {
+      super();
 		rankIndex = Card.getRankIndex(rank);
 		this.rank = rank;
-    }
+   }
 
-    public boolean isFull(){
+   public boolean isFull(){
 		return hand.size() == 4;
 	}
-    public void addCard( Card card ) {
+   public void addCard( Card card ) {
 		if (rankIndex == Card.getRankIndex(card.getRank()))
 			hand.add( card );
 
    	}
-	 /**
+	/**
    * Obtains the card stored at the specified location in the hand.  Does not
    * remove the card from the hand.
    * @param index position of card to be accessed.
@@ -32,7 +32,7 @@ public class Set implements SetInterface
       return (Card) hand.get( index );
    }
    
-    /**
+   /**
    * Removes the specified card from the current hand.
    * @param card the card to be removed.
    * @return the card removed from the hand, or null if the card
@@ -46,7 +46,7 @@ public class Set implements SetInterface
          return (Card) hand.remove( index );
    }
 
-  /**
+   /**
    * The number of cards held in the hand.
    * @return number of cards currently held in the hand.
    */
@@ -55,7 +55,7 @@ public class Set implements SetInterface
    }
 
 
-  /**
+   /**
    * Sorts the card in the hand.
    * Sort is performed according to the order specified in the {@link Card} class.
    */
@@ -64,7 +64,7 @@ public class Set implements SetInterface
    }
 
 
-  /**
+   /**
    * Checks to see if the hand is empty.
    * @return <code>true</code> is the hand is empty.
    */
@@ -73,7 +73,7 @@ public class Set implements SetInterface
    }
 
 
-  /**
+   /**
    * Determines whether or not the hand contains the specified card.
    * @param card the card being searched for in the hand.
    * @return <code>true</code> if the card is present in the hand.
@@ -83,7 +83,7 @@ public class Set implements SetInterface
    }
 
 
-  /**
+   /**
    * Searches for the first instance of the specified card in the hand.
    * @param card card being searched for.
    * @return position index of card if found, or <code>-1</code> if not found.
@@ -92,7 +92,7 @@ public class Set implements SetInterface
       return hand.indexOf( card );
    }
 
-  /**
+   /**
    * Removes the card at the specified index from the hand.
    * @param index poisition of the card to be removed.
    * @return the card removed from the hand, or the null reference if
@@ -117,22 +117,24 @@ public class Set implements SetInterface
 		Set otherSet = (Set) otherHandObject;
 		return rankIndex - otherSet.rankIndex;
 	}
-    /**
+
+   /**
      * Evaluates a hand according to the rules of the card game.
      * Each card is worth its displayed rank value (ace = 1, two = 2, etc.)
      * in points with face cards worth ten points.  The value of a hand
      * is equal to the summation of the points of all the cards held in
      * the hand.
      */
-    public int evaluateHand() {
-        int value = 0;
+   public int evaluateHand() {
+      int value = 0;
 
-        int cardValue = rankIndex - Card.getRankIndex('a') + 1;
-        if ( cardValue > 10 )
-           cardValue = 10;
-        value = getNumberOfCards() * cardValue;
+      int cardValue = rankIndex - Card.getRankIndex('a') + 1;
+      if ( cardValue > 10 ) {
+         cardValue = 10;
+         value = getNumberOfCards() * cardValue;
+      }
 
-        return value;
-    }
+      return value;
+   }
 
 }
