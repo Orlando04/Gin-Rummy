@@ -34,14 +34,14 @@ public class Deck {
 
    public Card dealCard() {
    
-	 if ( deck.size() == 0 )
+	if ( deck.size() == 0 )
          return null;
       else
-       
+      
 		return (Card) deck.removeFirst();
    }
    public Card removeCard() {
- 
+
 	if (deck.size() == 0)
          return null;
       else{
@@ -51,7 +51,7 @@ public class Deck {
    }
 
 
-  /**
+   /**
    * Shuffles the cards present in the deck.
    */
    public void shuffle() {
@@ -59,7 +59,7 @@ public class Deck {
    }
 
 
-  /**
+   /**
    * Looks for an empty deck.
    * @return <code>true</code> if there are no cards left to be dealt from the deck.
    */
@@ -69,10 +69,10 @@ public class Deck {
 
 
 
-  /**
+   /**
    * Restores the deck to "full deck" status.
    */
-  public void restoreDeck() {
+   public void restoreDeck() {
 	//not sure if kosher
       deck.removeAll(deck);
    }

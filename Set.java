@@ -20,7 +20,7 @@ public class Set implements SetInterface {
 		if (rankIndex == Card.getRankIndex(card.getRank()))
 			hand.add( card );
 
-   	}
+   }
 	/**
    * Obtains the card stored at the specified location in the hand.  Does not
    * remove the card from the hand.
