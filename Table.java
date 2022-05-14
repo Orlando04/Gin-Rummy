@@ -38,6 +38,9 @@ public class Table extends JFrame implements ActionListener
 	DefaultListModel p1Hand;
 	DefaultListModel p2Hand;
 
+	boolean turnBase = true;
+	boolean Draw = false;
+
 	private void deal(Card [] cards)
 	{
 		for(int i = 0; i < cards.length; i ++)
@@ -205,15 +208,27 @@ public class Table extends JFrame implements ActionListener
 			Card card = cardDeck.dealCard();
 
 			if (card != null){
-				if(src == p1Deck)
-					p1Hand.addElement(card);
-				else
-					p2Hand.addElement(card);
+				if(src == p1Deck && turnBase == true){
+					if (Draw == false){
+						p1Hand.addElement(card);
+						Draw = true;
+					}
+				}
+					
+				else {
+					if (Draw == false){
+						p2Hand.addElement(card);
+						Draw = true;
+					}
+				}
+					
 			}
 			if(cardDeck.getSizeOfDeck() == 0)
 				deckPile.setIcon(new ImageIcon(Card.directory + "blank.gif"));
 
 		}
+	
+
 		if(p1Stack == src || p2Stack == src){
 
 			Card card = stackDeck.removeCard();
@@ -225,29 +240,39 @@ public class Table extends JFrame implements ActionListener
 				else
 					topOfStack.setIcon(new ImageIcon(Card.directory + "blank.gif"));
 
-				if(p1Stack == src)
-					p1Hand.addElement(card);
-				else
-					p2Hand.addElement(card);
+				if(src == p1Stack && turnBase == true){
+					if (Draw == false){
+						p1Hand.addElement(card);
+						Draw = true;
+					}
 
-
+				else {
+					if (Draw = false){
+						p2Hand.addElement(card);
+						Draw = true;
+					}
+				}
 			}
 
 		}
+	}
 
-		if(p1Lay == src){
+		if(p1Lay == src && turnBase == true){
 			Object [] cards = p1HandPile.getSelectedValues();
 			if (cards != null)
 				for(int i = 0; i < cards.length; i++)
 				{
-					Card card = (Card)cards[i];
+					//Card card = (Card)cards[i];
 					layCard(card);
 					p1Hand.removeElement(card);
 				}
+
+				turnBase = false;
+				Draw = false;
 		}
 
 
-		if(p2Lay == src){
+		if(p2Lay == src && turnBase == false){
 			Object [] cards = p2HandPile.getSelectedValues();
 			if (cards != null)
 				for(int i = 0; i < cards.length; i++)
@@ -256,10 +281,13 @@ public class Table extends JFrame implements ActionListener
 					layCard(card);
 					p2Hand.removeElement(card);
 				}
+
+				turnBase = true;
+				Draw = false;
 		}
 
 
-		if(p1LayOnStack == src){
+		if(p1LayOnStack == src && turnBase == true){
 			int [] num  = p1HandPile.getSelectedIndices();
 			if (num.length == 1)
 			{
@@ -272,10 +300,13 @@ public class Table extends JFrame implements ActionListener
 					topOfStack.setIcon(card.getCardImage());
 				}
 			}
+
+			turnBase = false;
+			Draw = false;
 		}
 
 
-		if(p2LayOnStack == src){
+		if(p2LayOnStack == src && turnBase == false){
 			int [] num  = p2HandPile.getSelectedIndices();
 			if (num.length == 1)
 			{
@@ -289,12 +320,13 @@ public class Table extends JFrame implements ActionListener
 					topOfStack.setIcon(card.getCardImage());
 				}
 			}
-		}
 
+			turnBase = true;
+			Draw = false;
+		}
 	}
 
-	void layCard(Card card)
-	{
+	void layCard(Card card) {
 		char rank = card.getRank();
 		char suit = card.getSuit();
 		int suitIndex =  Card.getSuitIndex(suit);
