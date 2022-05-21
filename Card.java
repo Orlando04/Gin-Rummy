@@ -52,16 +52,16 @@ public class Card implements Comparable {
    {
 
 					switch(suit){
-					case 'c':
+					case 'c': // clubs
 						return 0;
 
-					case 'd':
+					case 'd': // diamonds
 						return 1;
 
-					case 'h':
+					case 'h': // hearts
 						return 2;
 
-					case 's':
+					case 's': // spades
 						return 3;
 				}
 				return -1;
@@ -84,9 +84,9 @@ public class Card implements Comparable {
 						return rank - '1';
 					case 't':
 						return 9;
-					case 'j':
+					case 'j': // jack which has a value of 10 in the game
 						return 10;
-					case 'q':
+					case 'q': // queen which has a value of 11 in the game
 						return 11;
 					case 'k':
 						return 12;

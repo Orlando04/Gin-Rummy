@@ -209,6 +209,8 @@ public class Table extends JFrame implements ActionListener
 
 			if (card != null){
 				if(src == p1Deck && turnBase == true){
+					System.out.println("PLAYER 1 ");
+					System.out.println("ADDED: ");
 					if (Draw == false){
 						p1Hand.addElement(card);
 						Draw = true;
@@ -217,6 +219,8 @@ public class Table extends JFrame implements ActionListener
 					
 				else {
 					if (Draw == false){
+						System.out.println("PLAYER 2 ");
+						System.out.println("ADDED: ");
 						p2Hand.addElement(card);
 						Draw = true;
 					}
@@ -241,12 +245,16 @@ public class Table extends JFrame implements ActionListener
 					topOfStack.setIcon(new ImageIcon(Card.directory + "blank.gif"));
 
 				if(src == p1Stack && turnBase == true){
+					System.out.println("PLAYER 1 ");
+					System.out.println("ADDED: ");
 					if (Draw == false){
 						p1Hand.addElement(card);
 						Draw = true;
 					}
 
 				else {
+					System.out.println("PLAYER 2 ");
+					System.out.println("ADDED: ");
 					if (Draw = false){
 						p2Hand.addElement(card);
 						Draw = true;
@@ -262,7 +270,7 @@ public class Table extends JFrame implements ActionListener
 			if (cards != null)
 				for(int i = 0; i < cards.length; i++)
 				{
-					//Card card = (Card)cards[i];
+					Card card = (Card)cards[i];
 					layCard(card);
 					p1Hand.removeElement(card);
 				}
